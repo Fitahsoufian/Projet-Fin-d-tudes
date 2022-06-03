@@ -1,0 +1,42 @@
+.control{
+    width: 85%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-bottom: 20px;
+   }
+   
+   .control label{
+    font-weight: bold;
+    color:#212529;
+   }
+   .control input{
+    width: 70%;
+    padding:10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    color: #495057;
+    font-size:15px;
+   }
+   
+   .button{
+    background-color: #e29715;
+    border: none;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 3px;
+    margin-top:15px;
+    font-weight: 500;
+   }
+   .button:hover {
+       background-color: #030303;
+       color: white;
+       
+       
+     }
