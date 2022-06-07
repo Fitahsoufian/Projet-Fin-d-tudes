@@ -12,7 +12,7 @@ Post.init({
     },
 
     title: {
-        type: DataTypes.SMALLINT,
+        type: DataTypes.STRING,
         allowNull: false
 
     },

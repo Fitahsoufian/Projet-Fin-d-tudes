@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BannerName({name, discount, link}) {
+function BannerName({link}) {
   const currency = "$";
   return (
     <div className="bannerContent">

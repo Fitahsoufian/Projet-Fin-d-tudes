@@ -52,7 +52,7 @@ export default function SubMenuContainer() {
         </div>
         <div className='card'>
       <div class="card-thumb">
-        <a href="#"><img src="https://media.istockphoto.com/photos/circuit-and-lock-picture-id614137876?k=20&m=614137876&s=612x612&w=0&h=ceY2Xljgm4Wsjqz35nbN1VQJOevY22oLwEbSoE7wCIc=" alt="" /></a>
+        <a href="#"><img src="https://www.efficrm.com/wp-content/uploads/2017/10/Reussir-la-digitalisation-de-son-SC.jpg" alt="" /></a>
         <span class="card-category">SuperAcc</span>
       </div>
       <div class="card-date">
