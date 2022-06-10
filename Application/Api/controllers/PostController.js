@@ -40,6 +40,16 @@ exports.findPost = async (req, res) => {
       }
     
 };
+exports.PostById = async (req, res) => {
+  try {
+      const post = await Post.findByPk(req.params.id);
+
+      res.json(post);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+};
+
 exports.updatePost = async (req,res)=>{
     try {
         const id = req.params.id

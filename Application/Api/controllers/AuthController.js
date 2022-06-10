@@ -38,7 +38,7 @@ exports.signIn = async (req, res) => {
         message: "email or password not correct",
       });
     } else {
-      const token = jwt.sign({ id: user.id }, process.env.SECRET_KEY, {
+      const token = jwt.sign({ id: user.id,role: user.role}, process.env.SECRET_KEY, {
         expiresIn: process.env.EXPIRE_IN,
       });
 

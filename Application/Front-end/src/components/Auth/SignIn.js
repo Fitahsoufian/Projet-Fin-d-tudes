@@ -25,7 +25,7 @@ const navigate = useNavigate();
    return axios.post(`http://localhost:5000/api/signin`, {
      email: email,
      password: password,
-   });
+   })
  }
 
   const handlePassword = (e) => {
@@ -34,12 +34,13 @@ const navigate = useNavigate();
 
   const handleSubmit =()=> {
     login( data.email, data.password).then((response) => {
-      // window.localStorage.setItem("token", response.data.accessToken);
-      // window.location = '/owners'
       (async () => {
         console.log(response.data.token)
+        localStorage.setItem("token", response.data.token);
+
+        console.log(localStorage.getItem("token"));
         await dispatch(loginAction());
-        await navigate('/home')
+        await navigate('/dashboard')
         
       })()
     });

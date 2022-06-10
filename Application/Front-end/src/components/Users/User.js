@@ -1,13 +1,26 @@
 import React,{useState} from "react";
 import {Link} from 'react-router-dom'
 import axios from "axios";
-function User({id,name,email,number,HandleMode}) {
-    // const [show, setShow] = useState(null)
+function User({id,name,email,number,role,HandleMode}) {
     const [users, setUser] = useState([])
     
+    const roleUser = async(e,selectionId)=>{
+        try {
+            await axios.get(`http://localhost:5000/api//updateRole/${selectionId}`)
+            .then(res => {
+                const up = users.filter(e =>e._id !== selectionId)
+                  setUser(up)
+              })
+
+            alert("role is changed!");
+        } catch (e) {
+            console.error(e);
+        }
+        }
+
     const deleteHandler = async (e,selectionId)=>{
         console.log(selectionId)
-       await axios.delete(`http://localhost:3030/api/deleteuser/${selectionId}`)
+       await axios.delete(`http://localhost:5000/api/deleteuser/${selectionId}`)
          .then(res => {
            const del = users.filter(e =>e._id !== selectionId)
              setUser(del)
@@ -19,7 +32,7 @@ function User({id,name,email,number,HandleMode}) {
 
     return (
         <>
-                <tbody className="w-full">
+                <tbody className="w-full bg-white">
             <tr className="h-20 text-sm leading-none text-gray-800 bg-white hover:bg-gray-100 border-b border-t border-gray-100">
                 <td className="pl-4 cursor-pointer">
                     <div className="flex items-center">                        
@@ -42,10 +55,18 @@ function User({id,name,email,number,HandleMode}) {
                         </div>
                     </div>
                 </td>
+                <td className="pl-4 cursor-pointer">
+                    <div className="flex items-center">
+                        <div className="pl-4">
+                            <p className="font-normal">{role}</p>
+                        </div>
+                    </div>
+                </td>
                 <td className="px-5 mx-2 2xl:px-0">
-                <div className="d-block  card-footer">
-                    <button className="mr-2 btn-icon btn-icon-only btn btn-outline-success"><i className="pe-7s-pen btn-icon-wrapper"><Link to={"/updateMeal/"+id} onClick={(e)=> {HandleMode()}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
-                        </Link></i></button>
+                <div className="card-footer d-flex justify-content-around w-50">
+                <button className=" btn-icon btn-icon-only btn btn-outline-success"><Link to={"/users"} onClick={(e)=> {roleUser(e,id)}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
+                    <i className="pe-7s-check btn-icon-wrapper"></i>
+                        </Link></button>
                     <button className=" btn-icon btn-icon-only btn btn-outline-danger"><Link to={"/users"} onClick={(e)=> {deleteHandler(e,id)}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
                     <i className="pe-7s-trash btn-icon-wrapper"></i>
                         </Link></button>

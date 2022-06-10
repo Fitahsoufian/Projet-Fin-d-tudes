@@ -4,6 +4,7 @@ const authRouter = require("./routes/authRouter")
 const invoiceRouter = require("./routes/invoiceRouter")
 const transactionRouter = require("./routes/transactionRouter")
 const postRouter = require("./routes/postRouter")
+const userRouter = require("./routes/userRouter")
 var cors = require('cors')
 
 const app = express();
@@ -22,3 +23,4 @@ app.use('/api', authRouter)
 app.use('/api', invoiceRouter)
 app.use('/api', transactionRouter)
 app.use('/api', postRouter)
+app.use('/api', userRouter)

@@ -51,7 +51,7 @@ const SingUp = () => {
    <div className="flex">
     <div className="w-full lg:w-11/12 flex">
 
-     <div style={{borderRadius:"10%" , backgroundColor:" #00004b" ,position:'absolute',zIndex:'1',marginLeft:'350px' , marginTop:'200px' }} className="w-50 lg:w-7/12 ">
+     <div style={{borderRadius:"10%" , backgroundColor:" #00004b" ,position:'absolute',zIndex:'1',marginLeft:'350px' , marginTop:'150px' }} className="w-50 lg:w-7/12 ">
       <h3 className="pt-4 text-2xl text-center text-white mb-5">Create an Account!</h3>
       {/* {err && showErrMsg(err)} */}
             {success && showSuccessMsg(success)}

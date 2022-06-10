@@ -56,7 +56,6 @@ export default function Invoice() {
       <th className="px-5 2xl:px-0 text-white" scope="col">Management</th>
     </tr>
   </thead>
-  {/* <tbody><TransactionList transactions={transactionHandler()}/></tbody> */}
     <InvoiceList invoiceList ={invoiceHandler()}/>
     </table>
    </div>

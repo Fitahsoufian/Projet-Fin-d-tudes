@@ -18,15 +18,10 @@ function Home() {
     return(
 <div className="App">
 <Header />
-
-      {/* Main Container */}
-
       <main>
         <div className="mainContainer">
-          
-          {/* Banner */}
           <div className="banner">
-            <BannerName name={"Soufian"} discount={"20"} link={"/offers"} />
+            <BannerName link={"/signin"} />
             <img
              src="https://www.freshbooks.com/wp-content/uploads/cost-accounting.jpg.optimal.jpg"
               className="deliveryPic"

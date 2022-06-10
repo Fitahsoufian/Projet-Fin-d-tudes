@@ -33,7 +33,7 @@ const AddTransaction = () => {
     const regesterHandler = async ()=>{
       
       
-        // e.prevegntDefault()
+  
 
       const data = {
       journal,
@@ -53,7 +53,7 @@ const AddTransaction = () => {
     }
   
  return ( 
-  <Form >
+  <Form>
   <Form.Controller>
   <label htmlFor='name'>Journal : </label>
   <input type="text" id='fname' placeholder="Journal ..." value={journal} onChange={handleJournal} />

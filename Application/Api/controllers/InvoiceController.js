@@ -16,8 +16,8 @@ exports.createInvoice = async (req, res) => {
           invoices: invoices,
         });
       } catch (error) {
-        res.status(400).send(error);
         console.log(error);
+        res.status(400).send(error);
       }
     };
 
@@ -42,6 +42,16 @@ exports.findInvoice = async (req, res) => {
       }
     
 };
+exports.InvoiceById = async (req, res) => {
+  try {
+      const invoice = await Invoice.findByPk(req.params.id);
+
+      res.json(invoice);
+    } catch (error) {
+      res.status(400).send(error);
+    }
+};
+
 exports.updateInvoice = async (req,res)=>{
     try {
         const id = req.params.id

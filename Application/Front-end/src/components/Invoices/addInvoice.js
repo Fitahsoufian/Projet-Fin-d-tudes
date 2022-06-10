@@ -33,8 +33,6 @@ const AddInvoice = () => {
     const regesterHandler = async ()=>{
       
       
-        // e.prevegntDefault()
-
       const data = {
       number,
       customer_name,
@@ -44,7 +42,11 @@ const AddInvoice = () => {
 
       
      try {
-       const result = await axios.post(API_URL , data).data
+       const result = await axios.post(API_URL , data, {
+         headers: {
+           authorization: `${localStorage.getItem('token')}`
+          }
+       }).data
        return result
      } catch (error) {
        console.log(error)
@@ -72,7 +74,7 @@ const AddInvoice = () => {
   <label htmlFor='name'>Statement : </label>
   <input type="text" id='start' placeholder="Statement ..." value={Statement} onChange={handleStatement}/>
  </Form.Controller>
- <Buttom type="submit" style={{ marginRight: '20px', backgroundColor:'#00004b',color:'white' }} onClick={regesterHandler} > +add Transaction</Buttom>
+ <Buttom type="submit" style={{ marginRight: '20px', backgroundColor:'#00004b',color:'white' }} onClick={regesterHandler} > +add Invoice</Buttom>
   </Form>
   );
 }

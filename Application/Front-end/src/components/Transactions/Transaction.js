@@ -54,7 +54,7 @@ function Transaction({id,journal,entitled,debit,credit, HandleMode}) {
                 <div className="d-block  card-footer">
                     <button className="mr-2 btn-icon btn-icon-only btn btn-outline-success"><i className="pe-7s-pen btn-icon-wrapper"><Link to={"/updateTransaction/"+id} onClick={(e)=> {HandleMode()}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
                         </Link></i></button>
-                    <button className=" btn-icon btn-icon-only btn btn-outline-danger"><Link to={"/repas"} onClick={(e)=> {deleteHandler(e,id)}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
+                    <button className=" btn-icon btn-icon-only btn btn-outline-danger"><Link to={"/transactions"} onClick={(e)=> {deleteHandler(e,id)}} style={{textDecoration: 'none'}} className="text-s w-full text-center cursor-pointer hover:text-black" >
                     <i className="pe-7s-trash btn-icon-wrapper"></i>
                         </Link></button>
                 </div>
