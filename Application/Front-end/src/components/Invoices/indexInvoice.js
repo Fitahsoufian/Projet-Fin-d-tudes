@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {useSelector} from "react-redux"
 import axios from "axios";
 import InvoiceList from "./InvoiceList";
 import AddInvoice from "./addInvoice";
@@ -8,21 +9,30 @@ import Model from "../module/Model"
 export default function Invoice() {
   const [invoices, setInvoice] = useState([]);
   const [showModul, setShowModul]= useState(false)
+  const token = localStorage.getItem("token")
+
 
 
     const closeModel = ()=> setShowModul(false)
     const HandleModel = () => setShowModul(true)
 
-  const url = "http://localhost:5000/api/getInvoices";
+  const url = `http://localhost:5000/api/getInvoices`;
   useEffect(() => {
     getAllInvoices();
   }, []);
   const getAllInvoices = () => {
-    axios.get(url).then((response) => {
+
+    axios.get(url, {
+      headers: {
+        Authorization: `${token}`
+      },
+      
+    } ).then((response) => {
+      if(response.data.invoices){
         console.log('response',response.data.invoices)
         const allInvoices = response.data.invoices;
         setInvoice(allInvoices);
-        
+      }
       })
       .catch((error) => console.error(`Error: ${error}`));
   };

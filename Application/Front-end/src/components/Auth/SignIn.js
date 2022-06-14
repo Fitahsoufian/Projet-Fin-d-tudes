@@ -40,6 +40,8 @@ const navigate = useNavigate();
 
         console.log(localStorage.getItem("token"));
         await dispatch(loginAction());
+        await dispatch(setRoleAction(jwtDecode(response.data.token).role));
+        await dispatch(setIdAction(jwtDecode(response.data.token).id));
         await navigate('/dashboard')
         
       })()

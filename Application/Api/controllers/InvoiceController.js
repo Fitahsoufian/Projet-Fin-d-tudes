@@ -9,6 +9,7 @@ exports.createInvoice = async (req, res) => {
           customer_name : req.body.customer_name,
           amount: req.body.amount,
           Statement: req.body.Statement,
+          UserId:req.user.id ,
         });
         console.log("done");
     
@@ -24,8 +25,10 @@ exports.createInvoice = async (req, res) => {
 
 exports.findInvoice = async (req, res) => {
     try {
+        const invoices = await Invoice.findAll(
     
-        const invoices = await Invoice.findAll();
+          {where : {UserId: req.user.id}}
+          );
     
         if (!invoices) {
           res.status(401).json({

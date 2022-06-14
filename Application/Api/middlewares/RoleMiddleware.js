@@ -86,5 +86,19 @@ exports.checkAdminRole =  (req,res, next)=>{
     } catch (error) {
         res.send(error)
         
-    }
+    }   
   }
+  exports.verifyLogin =   (req, res, next)=> {
+    let token = req.headers.authorization
+    if (!token) {
+      res.status(401).send("Acess Denied");
+    }
+    jwt.verify(token, process.env.SECRET_KEY, (err, user) => {
+      if (err) {
+        res.json({ success: false, message: "Failed to authenticate token " });
+      } else {
+        req.user = user;
+        next();
+      }
+    });
+  };

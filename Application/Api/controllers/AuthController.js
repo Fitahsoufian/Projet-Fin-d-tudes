@@ -31,12 +31,13 @@ exports.signIn = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    const user = await User.findOne({ where: { email: email } });
+    const user = await User.findOne({ where: { email: email, password: password } });
+    console.log(user.password);
 
-    if (!user || !user.password == password) {
+    if (!user.password == password) {
       res.status(401).json({
         message: "email or password not correct",
-      });
+    });
     } else {
       const token = jwt.sign({ id: user.id,role: user.role}, process.env.SECRET_KEY, {
         expiresIn: process.env.EXPIRE_IN,
