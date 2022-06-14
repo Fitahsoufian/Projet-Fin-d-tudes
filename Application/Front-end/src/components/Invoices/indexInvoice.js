@@ -21,12 +21,10 @@ export default function Invoice() {
     getAllInvoices();
   }, []);
   const getAllInvoices = () => {
-
     axios.get(url, {
       headers: {
         Authorization: `${token}`
       },
-      
     } ).then((response) => {
       if(response.data.invoices){
         console.log('response',response.data.invoices)
