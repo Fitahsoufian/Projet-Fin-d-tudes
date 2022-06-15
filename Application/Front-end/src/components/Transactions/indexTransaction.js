@@ -3,11 +3,14 @@ import axios from "axios";
 import TransactionList from "./TransactionList";
 import AddTransaction from "./addTransaction";
 import Model from "../module/Model"
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Transaction() {
   const [transactions, setTransaction] = useState([]);
   const [showModul, setShowModul]= useState(false)
+  const token = localStorage.getItem("token")
 
 
     const closeModel = ()=> setShowModul(false)
@@ -18,7 +21,9 @@ export default function Transaction() {
     getAllTransactions();
   }, []);
   const getAllTransactions = () => {
-    axios.get(url).then((response) => {
+    axios.get(url,{ headers: {
+      Authorization: `${token}`
+    },}).then((response) => {
         console.log('response',response.data.transactions)
         const allTransactions = response.data.transactions;
         setTransaction(allTransactions);
@@ -37,6 +42,10 @@ export default function Transaction() {
     <div className="px-5 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
      <div className="sm:flex items-center justify-between">
      <p style={{ fontWeight:"bold",fontSize:'50px' }}  className="text-base sm:text-lg md:text-xl lg:text-2xl font-bolder leading-normal text-gray-800">Transactions</p>
+     <button style={{ position:'absolute',right:'100px',  fontWeight:"bold",backgroundColor:'#00006c',padding:'10px' }} className=" sm:ml-3 mt-4 sm:mt-0 focus:outline-none rounded">
+     <FontAwesomeIcon style={{ color:'white' }} icon={ faArrowRight }/>
+       <a style={{ textDecoration: 'none' }} className="link-light p-4" href='/news'>News</a>
+        </button>
       <div>
       <button onClick={HandleModel} style={{ fontWeight:"bold",backgroundColor:'#00006c',padding:'10px' }} className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-center justify-center  focus:outline-none rounded">
        <p className="text-white">+ Add Transaction</p>

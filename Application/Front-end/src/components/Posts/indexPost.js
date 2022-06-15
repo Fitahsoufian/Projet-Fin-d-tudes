@@ -5,6 +5,8 @@ import AddPost from "./addPost";
 import Model from "../module/Model";
 import {useNavigate} from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Post() {
@@ -63,6 +65,11 @@ export default function Post() {
        <p className="text-white m-2">+ Add Post</p>
         </button>
         }
+        {role==='admin' &&
+        <button style={{ position:'absolute',right:'100px',  fontWeight:"bold",backgroundColor:'#00006c',padding:'10px' }} className=" sm:ml-3 mt-4 sm:mt-0 focus:outline-none rounded">
+       <FontAwesomeIcon style={{ color:'white' }} icon={ faArrowRight }/>
+         <a style={{ textDecoration: 'none' }} className="link-light p-4" href='/users'>Users</a>
+          </button>}
 
       </div>
     </div>

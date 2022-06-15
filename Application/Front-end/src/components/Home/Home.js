@@ -5,14 +5,6 @@ import MenuContainer from "./MenuContainer";
 import BannerName from "./BannerName";
 import SubMenuContainer from "./SubMenuContainer";
 import Footer from "./footer";
-import {
-    AccountBalanceWalletRounded,
-    Chat,
-    Favorite,
-    HomeRounded,
-    Settings,
-    SummarizeRounded,
-  } from "@mui/icons-material";
 
 function Home() {
     return(

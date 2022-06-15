@@ -9,6 +9,7 @@ exports.createTransaction = async (req, res) => {
           entitled : req.body.entitled,
           debit: req.body.debit,
           credit: req.body.credit,
+          UserId:req.user.id ,
         });
         console.log("done");
     
@@ -25,7 +26,9 @@ exports.createTransaction = async (req, res) => {
 exports.findTransaction = async (req, res) => {
     try {
     
-        const transactions = await Transaction.findAll();
+        const transactions = await Transaction.findAll(
+          {where : {UserId: req.user.id}}
+        );
     
         if (!transactions) {
           res.status(401).json({

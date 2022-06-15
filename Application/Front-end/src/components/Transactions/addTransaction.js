@@ -44,7 +44,10 @@ const AddTransaction = () => {
 
       
      try {
-       const result = await axios.post(API_URL , data).data
+       const result = await axios.post(API_URL , data,{
+        headers: {
+        authorization: `${localStorage.getItem('token')}`
+       }}).data
        return result
      } catch (error) {
        console.log(error)

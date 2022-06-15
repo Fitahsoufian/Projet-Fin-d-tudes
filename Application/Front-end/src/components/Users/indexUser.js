@@ -4,6 +4,8 @@ import UserList from "./UserList";
 import Model from "../module/Model"
 import jwtDecode from "jwt-decode";
 import { useNavigate } from "react-router-dom";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 
 export default function Index1() {
@@ -48,10 +50,11 @@ export default function Index1() {
     <div className="px-5 md:px-10 py-4 md:py-7 bg-gray-100 rounded-tl-lg rounded-tr-lg">
      <div className="sm:flex items-center justify-between">
      <p style={{ fontSize:'30px', fontWeight:'bold' }} className="text-base sm:text-lg md:text-xl lg:text-2xl leading-normal text-gray-800">Users</p>
+     <button style={{ fontWeight:"bold",backgroundColor:'#00006c',padding:'10px' }} className=" sm:ml-3 mt-4 sm:mt-0 focus:outline-none rounded">
+       <FontAwesomeIcon style={{ color:'white' }} icon={ faArrowLeft }/>
+         <a style={{ textDecoration: 'none' }} className="link-light p-4" href='/news'>News</a>
+          </button>
       <div>
-      {/* <button onClick={HandleModel} style={{ fontWeight:"bold" }} className="inline-flex sm:ml-3 mt-4 sm:mt-0 items-start  bg-warning justify-start px-3 py-1  focus:outline-none rounded">
-       <p className="text-sm font-medium leading-none text-black">+ Add Meal</p>
-        </button> */}
       </div>
     </div>
      </div>
@@ -70,22 +73,6 @@ export default function Index1() {
     <UserList userList ={userHandler()}/>
     </table>
    </div>
-
-   {/* <Model show={showModul} close={closeModel}> 
-    <AddMeal />
-    </Model> */}
     </>
   );
 }
-
-
-
-
-{/* <h1>testttttttttttt</h1>
-      {hotels.map((hotel, key) => {
-        return (
-          <div key={key}>
-            <div>{hotel.name}</div>
-          </div>
-        );
-      })} */}
